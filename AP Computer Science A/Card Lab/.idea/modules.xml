@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/ElevensStarterCode.iml" filepath="$PROJECT_DIR$/ElevensStarterCode.iml" />
-=======
-      <module fileurl="file://$PROJECT_DIR$/SortAMania.iml" filepath="$PROJECT_DIR$/SortAMania.iml" />
->>>>>>> t/master
     </modules>
   </component>
 </project>
