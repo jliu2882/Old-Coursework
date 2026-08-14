@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<!-- Jack Liu -->
+<html>
+	<head>
+		<title>Rock Paper Scissors</title>
+		<script>
+		function initialize()
+		{
+		ROCK = 1;
+		PAPER = 2;
+		SCISSOR = 3;
+		PLAYER = 1;
+		COMPUTER = 2;
+		TIE = 0;
+		playerScore = 0;
+		computerScore = 0;
+		player_score = document.getElementById("playerscore");
+		computer_score = document.getElementById("computerscore");
+		playerImage = document.getElementById("playerimage")
+		computerImage = document.getElementById("computerimage")
+		winnerRound  = document.getElementById("whowon")
+		ROCKIMAGE = "rock.jpg";
+		PAPERIMAGE = "paper.jpg";
+		SCISSORIMAGE = "scissor.jpg";
+		}
+		function game(choice,image)
+		{
+			playerChoice = choice;
+			playerImage.src = image;
+			computerSelection();
+			determineWinner();
+			updateScore();
+			display();
+		}
+		function computerSelection()
+		{
+			computerChoice = parseInt(Math.random()*3)+1;
+			if (computerChoice == ROCK)
+				computerImages = ROCKIMAGE;
+			if (computerChoice == PAPER)
+				computerImages = PAPERIMAGE;
+			if (computerChoice == SCISSOR)
+				computerImages = SCISSORIMAGE;
+			computerImage.src = computerImages
+		}
+		function determineWinner()
+		{
+			if (playerChoice == computerChoice)
+				{
+				roundWinner = TIE;
+				theWinner = "No one"
+				}
+			else if (playerChoice == ROCK && computerChoice == SCISSOR ||
+				playerChoice == PAPER && computerChoice == ROCK ||
+				playerChoice == SCISSOR && computerChoice == PAPER)
+				{
+				roundWinner = PLAYER;
+				theWinner = "Player"
+				}
+			else
+				{
+				roundWinner = COMPUTER;
+				theWinner = "Computer"
+				}
+		}
+		function updateScore()
+		{
+			if (roundWinner == PLAYER)
+				playerScore += 1;
+			else if (roundWinner == COMPUTER)
+					computerScore += 1;
+		}
+		function display()
+		{
+			player_score.innerHTML = playerScore
+			computer_score.innerHTML = computerScore
+			winnerRound.innerHTML = theWinner
+		}
+		</script>
+		<style>
+		p
+		{
+		text-align: center
+		}
+		span.right
+		{
+		position: relative;
+		left: 650px;
+		}
+		
+		</style>	
+	</head>
+
+	<body onload = "initialize();">
+		<p style = "font-size:50px;" >
+		Score
+		</p>
+		<p style = "font-size:25px;">
+		<span id = "playerscore">0</span>:<span id = "computerscore">0</span>
+		</p>
+		<p>
+		<span>
+		<img src = "rock.jpg" style="width:200px; height:150px;" onclick = "game(ROCK,ROCKIMAGE)">
+		</span>  <span>
+		<img src = "paper.jpg" style="width:150px; height:150px;" onclick = "game(PAPER,PAPERIMAGE)">
+		</span>  <span>
+		<img src = "scissor.jpg" style="width:150px; height:150px;" onclick = "game(SCISSOR,SCISSORIMAGE)">
+		</span>
+		<p style = "font-size:20px;">
+		Round Winner : <span id = "whowon">No one</span>
+		</p>
+		<span style = "font-size:20px;">
+		Your selection
+		<img style="width:150px; height:150px;" id = "playerimage" src = ""/>
+		
+		
+		</span><span class = "right" style = "font-size:20px;">
+		Computer selection
+		<img style="width:150px; height:150px;" id = "computerimage" src = ""/>
+		
+		
+		</span>
+	</body>
+</html>
