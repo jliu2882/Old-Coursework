@@ -1,0 +1,17 @@
+{% extends "pizzas/base.html" %}
+{% block content %}
+
+<p>Welcome to Jack's Pizzeria</p>
+<div>Available pizzas:</div>
+<ul>
+{% for pizza in pizzas %}
+<li>
+<a href="{% url 'pizzas:pizza' pizza.id %}">{{ pizza }}</a>
+</li>
+{% empty %}
+<li>No pizzas have been added yet. Contact an admin to add some pizzas!</li>
+{% endfor %}
+</ul>
+
+
+{% endblock content %}
