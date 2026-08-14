@@ -1,0 +1,11 @@
+Pane {
+    -fx-background-color: black;
+}
+
+.has-snake {
+    -fx-background-color: green;
+}
+
+.has-food {
+    -fx-background-color: red;
+}
